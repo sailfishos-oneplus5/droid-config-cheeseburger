@@ -1,4 +1,4 @@
-# ref: ../droid-configs-device/droid-configs.inc
+# Reference: ../droid-configs-device/droid-configs.inc
 
 %define vendor oneplus
 %define device cheeseburger
@@ -7,6 +7,6 @@
 %define device_pretty 5
 
 %define community_adaptation 1
-%define pixel_ratio 2.5
+%define pixel_ratio 2.25
 
 %include droid-configs-device/droid-configs.inc

@@ -7,7 +7,7 @@
 %define device_pretty 5
 
 %define community_adaptation 1
-%define pixel_ratio 1.85
+%define pixel_ratio 1.5
 
 # Device-specific ofono configuration
 Provides: ofono-configs

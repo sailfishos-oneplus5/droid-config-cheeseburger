@@ -65,7 +65,7 @@ Requires:
 
 # Extra useful modes not officially supported:
 # might need some configuration to get working
-#- usb-moded-mass-storage-android-config
+- usb-moded-mass-storage-android-config
 # working but careful with roaming!
 - usb-moded-connection-sharing-android-config
 # android diag mode only usable for certain android tools
@@ -79,13 +79,6 @@ Requires:
 
 # For GPS
 - geoclue-provider-hybris
-
-# For FM radio on some QCOM devices
-#- qt5-qtmultimedia-plugin-mediaservice-irisradio
-#- jolla-mediaplayer-radio
-
-# For devices with SD Card
-#- sd-utils
 
 Summary: Jolla HW Adaptation cheeseburger
 

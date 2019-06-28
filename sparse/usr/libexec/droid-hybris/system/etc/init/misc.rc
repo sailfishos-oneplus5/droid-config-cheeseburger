@@ -1,0 +1,11 @@
+# Some miscellaneous services that have been disabled to save on battery etc
+
+service qseecomd /vendor/bin/qseecomd_HYBRIS_DISABLED
+    class core
+    user root
+    group root
+
+service time_daemon /system/vendor/bin/time_daemon_HYBRIS_DISABLED
+    class main
+    user root
+    group root

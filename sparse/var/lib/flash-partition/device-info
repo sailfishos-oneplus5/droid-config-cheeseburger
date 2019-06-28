@@ -1,0 +1,6 @@
+# From "$ cat /proc/cpuinfo | grep Hardware"
+CPUCHECK_STRING="Qualcomm MSM 8974 HAMMERHEAD"
+
+PART_1="boot"
+PART_REAL_1="sde19"
+PART_I="1"

@@ -4,7 +4,7 @@
 %define device cheeseburger
 
 %define vendor_pretty OnePlus
-%define device_pretty 5
+%define device_pretty OnePlus 5
 
 %define community_adaptation 1
 %define pixel_ratio 1.8

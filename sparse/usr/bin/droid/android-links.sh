@@ -4,7 +4,8 @@
 m_path="/data/media"
 [ -d "$m_path/0" ] && m_path+="/0"
 
+rm -f /home/nemo/android_storage /sdcard
 ln -s $m_path /home/nemo/android_storage
-ln -sf $m_path /sdcard
+ln -s $m_path /sdcard
 
 rm /var/tmp/make-droid-links

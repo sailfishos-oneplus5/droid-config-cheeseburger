@@ -26,6 +26,9 @@ Requires:
 # Bluetooth
 - bluebinder
 
+# Flashlight
+- jolla-settings-system-flashlight
+
 # Sensors
 - hybris-libsensorfw-qt5
 

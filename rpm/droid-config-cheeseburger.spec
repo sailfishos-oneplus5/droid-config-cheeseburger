@@ -9,6 +9,8 @@
 %define community_adaptation 1
 %define pixel_ratio 1.8
 
+%define ofono_enable_plugins bluez5,hfp_ag_bluez5
+
 # Device-specific ofono configuration
 Provides: ofono-configs
 Obsoletes: ofono-configs-mer

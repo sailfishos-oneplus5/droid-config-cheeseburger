@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/env bash
 /usr/sbin/flash-partition boot /boot/hybris-boot.img

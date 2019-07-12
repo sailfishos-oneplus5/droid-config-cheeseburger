@@ -13,6 +13,7 @@ Requires:
 - droid-config-cheeseburger-preinit-plugin
 - droid-config-cheeseburger-flashing
 - droid-config-cheeseburger-bluez5
+#- droid-hal-cheeseburger-detritus
 - droid-hal-version-cheeseburger
 
 # Hybris packages
@@ -35,6 +36,7 @@ Requires:
 # Vibra
 - ngfd-plugin-native-vibrator
 - qt5-feedback-haptics-native-vibrator
+# - qt5-feedback-haptics-ffmemless
 
 # Needed for /dev/touchscreen symlink
 - qt5-plugin-generic-evdev
@@ -83,5 +85,14 @@ Requires:
 # For GPS
 - geoclue-provider-hybris
 
-Summary: Jolla HW Adaptation cheeseburger
+# OnePlus 5 specific packages
+- triambience
+- onyx-triambience-settings-plugin
+#- gestured
+#- onyx-gesture-settings-plugin
 
+# Other packages
+- nano
+- htop
+
+Summary: Jolla HW Adaptation cheeseburger

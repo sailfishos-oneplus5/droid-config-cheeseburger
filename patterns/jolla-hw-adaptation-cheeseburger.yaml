@@ -92,6 +92,7 @@ Requires:
 #- onyx-gesture-settings-plugin
 
 # Other packages
+- mce-tools
 - nano
 - htop
 

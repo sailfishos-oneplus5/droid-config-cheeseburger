@@ -1,0 +1,2 @@
+[desktop/lipstick-jolla-home]
+sailfish_hw_key_enabled=true

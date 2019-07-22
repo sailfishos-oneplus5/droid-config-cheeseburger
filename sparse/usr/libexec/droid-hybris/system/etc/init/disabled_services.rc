@@ -1,0 +1,17 @@
+# Disable some Android side services for SFOS by pointing them to a non-existing files.
+# Further service definitions will be ignored and these ones have to be included first.
+
+service qti /vendor/bin/qti_HYBRIS_DISABLED
+service time_daemon /vendor/bin/time_daemon_HYBRIS_DISABLED
+
+# Import init.qcom.rc AFTER time_daemon & qti are disabled
+import /vendor/etc/init/hw/init.qcom.rc
+
+service keymaster-3-0 /vendor/bin/hw/android.hardware.keymaster@3.0-service-qti_HYBRIS_DISABLED
+service audioserver /system/bin/audioserver_HYBRIS_DISABLED
+service cameraserver /system/bin/cameraserver_HYBRIS_DISABLED
+service keystore /system/bin/keystore /data/misc/keystore_HYBRIS_DISABLED
+service media /system/bin/mediaserver_HYBRIS_DISABLED
+service netd /system/bin/netd_HYBRIS_DISABLED
+service surfaceflinger /system/bin/surfaceflinger_HYBRIS_DISABLED
+service wificond /system/bin/wificond_HYBRIS_DISABLED

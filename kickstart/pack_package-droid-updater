@@ -1,56 +1,58 @@
-pushd $IMG_OUT_DIR # ./sfe-cheeseburger-3.0.3.10
+pushd $IMG_OUT_DIR # ./sfe-$DEVICE-$RELEASE_ID
 
 DEVICE=@DEVICE@
 
-VERSION_FILE=./os-release
-source $VERSION_FILE
+# Source release info e.g. VERSION
+source ./os-release
 
-# Locate rootfs tar.bz2 archive.
+# Locate rootfs tar.bz2 archive
 for filename in *.tar.bz2; do
-	GEN_IMG_BASE=$(basename $filename .tar.bz2)
+	GEN_IMG_BASE=$(basename $filename .tar.bz2) # sfe-$DEVICE-3.0.3.10
 done
-
 if [ ! -e "$GEN_IMG_BASE.tar.bz2" ]; then
-	echo "No rootfs archive found, exiting ..."
+	echo "[hybris-installer] No rootfs archive found, exiting..."
 	exit 1
 fi
 
-IMG_SIZE=$(du -h $GEN_IMG_BASE.tar.bz2 | cut -f1)
+# Roughly estimate the final rootfs size when installed
+IMAGE_SIZE=`echo "scale=2; 2.25 * $(du -h $GEN_IMG_BASE.tar.bz2 | cut -d'M' -f1)" | bc`
+#IMAGE_SIZE=`echo "scale=2; $(bzcat $GEN_IMG_BASE.tar.bz2 | wc -c) / 1024 / 1024" | bc` # <- way too slow to be practical
+echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 
 # Output filenames
-DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID@EXTRA_NAME@
+DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID@EXTRA_NAME@ # sailfishos-$DEVICE-release-3.0.3.10
 DST_IMG=$DST_IMG_BASE.tar.bz2
 
-# Copy boot image, updater scripts and updater binary into updater .zip tree.
+# Copy updater scripts, boot image & custom hybris-installer into updater .zip tree
 mkdir -p updater/META-INF/com/google/android
-
-mv update-binary updater/META-INF/com/google/android/update-binary
-mv hybris-boot.img updater/hybris-boot.img
-#mv hybris-updater-script updater/META-INF/com/google/android/updater-script
-#mv hybris-updater-unpack.sh updater/updater-unpack.sh
-
-# Temporarily move the rootfs into the updater directory
+mv update-binary updater/META-INF/com/google/android/
+mv hybris-boot.img updater/
 mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
+cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 
-# declare extra files to pack into updater .zip
-rsync -r ../installer-sparse/ updater/
+# Update scripts with image details
+sed -e "s/%IMAGE_FILE%/$DST_IMG/g" -i updater/META-INF/com/google/android/updater-script
+sed -e "s/%VERSION%/$VERSION/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -i updater/custom-install.sh
 
-# Update updater-script with image details.
-sed -i -e "s %VERSION% $VERSION_ID g" -e "s %IMAGE_FILE% $DST_IMG g" -e "s %IMAGE_SIZE% $IMG_SIZE g" updater/META-INF/com/google/android/updater-script
-sed -i -e "s %VERSION% $VERSION_ID g" updater/custom-install.sh
-
-# pack updater .zip
-pushd updater # sfe-cheeseburger-3.0.3.10/updater
-
-# META-INF/com/google/android/update-binary META-INF/com/google/android/updater-script updater-unpack.sh hybris-boot.img $DST_IMG_BASE.ks $DST_IMG
+# Pack updater .zip
+pushd updater # sfe-$DEVICE-$RELEASE_ID/updater
+echo "[hybris-installer] Creating package '$DST_IMG_BASE.zip'..."
 zip -r ../$DST_IMG_BASE.zip .
+mv $DST_IMG ../$GEN_IMG_BASE.tar.bz2
+popd # sfe-$DEVICE-$RELEASE_ID
 
-popd # sfe-cheeseburger-3.0.3.10
+# Pack boot-switcher .zip
+if [ -d ../hybris/boot-switcher/boot-switcher ]; then
+	cp -r ../hybris/boot-switcher/boot-switcher .
+	mv updater/hybris-boot.img boot-switcher/
+	cp ../out/target/product/$DEVICE/boot.img boot-switcher/droid-boot.img
+	pushd boot-switcher # sfe-$DEVICE-$RELEASE_ID/boot-switcher
+	echo "[hybris-installer] Creating package 'Switch-Boot-Target-SFOS-LOS-$DEVICE.zip'..."
+	zip -r ../Switch-Boot-Target-SFOS-LOS-$DEVICE.zip .
+	popd # sfe-$DEVICE-$RELEASE_ID
+fi
 
-# Move the rootfs back out of the updater directory
-mv updater/$DST_IMG $GEN_IMG_BASE.tar.bz2
+# Clean up working directories
+rm -rf updater/ boot-switcher/
 
-# Clean up updater .zip working directory.
-rm -rf updater
-
-popd # src
+popd # hadk source tree

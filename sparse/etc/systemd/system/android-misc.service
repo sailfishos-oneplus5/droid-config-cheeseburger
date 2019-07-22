@@ -1,8 +1,0 @@
-[Unit]
-Description=Misc Android stuff e.g. enabling button backlight & storage folder linking to home & /sdcard
-After=local-fs.target
-Conflicts=rescue.target actdead.target factory-test.target
-
-[Service]
-Type=oneshot
-ExecStart=/usr/bin/droid/android-misc.sh

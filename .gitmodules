@@ -1,4 +1,4 @@
 [submodule "droid-configs-device"]
 	path = droid-configs-device
-	url = https://github.com/sailfishos-oneplus5/droid-hal-configs
+	url = https://github.com/sailfishos-oneplus5/droid-hal-configs.git
 	branch = hossa-fix

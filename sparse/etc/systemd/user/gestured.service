@@ -1,0 +1,9 @@
+[Unit]
+Description=Daemon to handle display off gestures
+After=graphical.target
+Conflicts=actdead.target factory-test.target rescue.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/droid/gestured-start.sh

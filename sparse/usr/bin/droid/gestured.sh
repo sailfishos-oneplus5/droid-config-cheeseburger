@@ -4,11 +4,15 @@
 # Configuration
 sleep_seconds=1
 
-# Functions
+# Logging
 log() {
-	echo "gestured: $@"
+	echo "gestured: $@" > /var/log/gestured.log
 }
+touch /var/log/gestured.log
+chown nemo: /var/log/gestured.log
+echo "gestured: logs in /var/log/gestured.log"
 
+# MPRIS2
 mpris_service=""
 
 update_mpris_service() {
@@ -40,6 +44,7 @@ while true; do
 		echo $line | grep "0$" &>/dev/null && continue
 
 		#log "Waiting for a gesture..."
+		# TODO: Check proximity sensor to prevent accidental activations
 
 		# Arrows (<>^V)
 		if echo $line | grep "0x0fc" > /dev/null; then

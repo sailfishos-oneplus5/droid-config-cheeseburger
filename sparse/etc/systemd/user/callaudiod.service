@@ -1,11 +1,11 @@
 [Unit]
-Description=Sleep mode gestures daemon
-After=post-user-session.target cheeseburger-misc.service
+Description=Call audio daemon
+After=post-user-session.target
 Conflicts=actdead.target factory-test.target rescue.target
 Requires=dbus.socket
 
 [Service]
-ExecStart=/usr/bin/droid/gestured.sh
+ExecStart=/usr/bin/droid/callaudiod.sh
 Restart=always
 RestartSec=1
 

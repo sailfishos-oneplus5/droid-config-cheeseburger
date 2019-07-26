@@ -44,7 +44,7 @@ while true; do
 		#log "Waiting for a gesture..."
 		# TODO: Check proximity sensor to prevent accidental activations
 
-		# Arrows (<>^V)
+		# Arrows (ʌv<>)
 		if echo $line | grep "0x0fc" > /dev/null; then
 			log "Arrow UP detected, showing recent calls..."
 			# TODO Attempt unlock?
@@ -71,7 +71,7 @@ while true; do
 		elif echo $line | grep "0x0f6" > /dev/null; then
 			log "Letter W detected"
 
-		# Lines ()
+		# Lines (↑↓←→)
 		elif echo $line | grep "0x042" > /dev/null; then
 			log "Line UP detected"
 		elif echo $line | grep "0x041" > /dev/null; then

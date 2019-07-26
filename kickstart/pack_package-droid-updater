@@ -41,18 +41,7 @@ zip -r ../$DST_IMG_BASE.zip .
 mv $DST_IMG ../$GEN_IMG_BASE.tar.bz2
 popd # sfe-$DEVICE-$RELEASE_ID
 
-# Pack boot-switcher .zip
-if [ -d ../hybris/boot-switcher/boot-switcher ]; then
-	cp -r ../hybris/boot-switcher/boot-switcher .
-	mv updater/hybris-boot.img boot-switcher/
-	cp ../out/target/product/$DEVICE/boot.img boot-switcher/droid-boot.img
-	pushd boot-switcher # sfe-$DEVICE-$RELEASE_ID/boot-switcher
-	echo "[hybris-installer] Creating package 'Switch-Boot-Target-SFOS-LOS-$DEVICE.zip'..."
-	zip -r ../Switch-Boot-Target-SFOS-LOS-$DEVICE.zip .
-	popd # sfe-$DEVICE-$RELEASE_ID
-fi
-
 # Clean up working directories
-rm -rf updater/ boot-switcher/
+rm -rf updater/
 
 popd # hadk source tree

@@ -8,8 +8,6 @@ sleep_seconds=1
 log() {
 	echo "gestured: $@" > /var/log/gestured.log
 }
-touch /var/log/gestured.log
-chown nemo: /var/log/gestured.log
 echo "gestured: logs in /var/log/gestured.log"
 
 # MPRIS2

@@ -1,7 +1,13 @@
 #!/bin/env bash
+# A miscellaneous preparation script to run on device startup.
 
-# Enable backlight for buttons
+# Enable backlight for physical buttons
 echo 1 > /sys/class/leds/button-backlight/brightness
+
+# Prepare log file for gestured
+touch /var/log/gestured.log
+chown nemo: /var/log/gestured.log
+echo "" > /var/log/gestured.log
 
 # Create links to Android Storage on first boot
 [ ! -f /var/tmp/make-droid-links ] && exit 0

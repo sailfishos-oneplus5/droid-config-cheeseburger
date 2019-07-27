@@ -6,9 +6,14 @@ sleep_seconds=1
 
 # Logging
 log() {
-	echo "gestured: $@" > /var/log/gestured.log
+	echo "gestured: $@" >> /var/log/gestured.log
 }
 echo "gestured: logs in /var/log/gestured.log"
+
+run() {
+	log "$ $@"
+	$@ >> /var/log/gestured.log 2>&1
+}
 
 # MPRIS2
 mpris_service=""
@@ -27,18 +32,20 @@ mpris_do_action() {
 		return
 	fi
 
-	dbus-send --type=method_call --dest=$mpris_service /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.$mpris_action
+	run dbus-send --type=method_call --dest=$mpris_service /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.$mpris_action
 
 	unset mpris_action
 }
 
 # Enable all gestures
 for g in `ls -1 /proc/touchpanel/ | grep enable | grep -v tpedge | grep -v sleep`; do
-	echo 1 > /proc/touchpanel/$g
+	echo 1 > /proc/touchpanel/$g && log "$g"
 done
 
+log "daemon started"
 while true; do
 	evdev_trace -t 4 | while read -r line; do
+		#log "evdev: $line"
 		echo $line | grep "0$" &>/dev/null && continue
 
 		#log "Waiting for a gesture..."
@@ -48,10 +55,10 @@ while true; do
 		if echo $line | grep "0x0fc" > /dev/null; then
 			log "Arrow UP detected, showing recent calls..."
 			# TODO Attempt unlock?
-			dbus-send --type=method_call --dest=com.jolla.voicecall.ui /org/maemo/m com.nokia.telephony.callhistory.launch string:null
+			run dbus-send --type=method_call --dest=com.jolla.voicecall.ui /org/maemo/m com.nokia.telephony.callhistory.launch string:null
 		elif echo $line | grep "0x0ff" > /dev/null; then
 			log "Arrow DOWN detected, toggling flashlight..."
-			dbus-send --type=method_call --dest=com.jolla.settings.system.flashlight /com/jolla/settings/system/flashlight com.jolla.settings.system.flashlight.toggleFlashlight
+			run dbus-send --type=method_call --dest=com.jolla.settings.system.flashlight /com/jolla/settings/system/flashlight com.jolla.settings.system.flashlight.toggleFlashlight
 		elif echo $line | grep "0x0fd" > /dev/null; then
 			log "Arrow LEFT detected, playing previous song..."
 			mpris_do_action "Previous"
@@ -65,7 +72,7 @@ while true; do
 		elif echo $line | grep "0x0fa" > /dev/null; then
 			log "Letter O detected, launching camera..."
 			# TODO Attempt unlock?
-			dbus-send --type=method_call --dest=com.jolla.camera / com.jolla.camera.ui.showViewfinder string:null
+			run dbus-send --type=method_call --dest=com.jolla.camera / com.jolla.camera.ui.showViewfinder string:null
 		elif echo $line | grep "0x0f8" > /dev/null; then
 			log "Letter S detected"
 		elif echo $line | grep "0x0f6" > /dev/null; then

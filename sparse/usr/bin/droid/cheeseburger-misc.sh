@@ -4,11 +4,6 @@
 # Enable backlight for physical buttons
 echo 1 > /sys/class/leds/button-backlight/brightness
 
-# Prepare log files for custom daemons
-rm /var/log/{gestured,callaudiod}.log
-touch /var/log/{gestured,callaudiod}.log 
-chown nemo: /var/log/{gestured,callaudiod}.log
-
 # Create links to Android Storage on first boot
 [ ! -f /var/tmp/make-droid-links ] && exit 0
 

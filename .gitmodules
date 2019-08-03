@@ -1,7 +1,6 @@
 [submodule "droid-configs-device"]
 	path = droid-configs-device
-	url = https://github.com/sailfishos-oneplus5/droid-hal-configs.git
-	branch = hossa-fix
+	url = https://github.com/mer-hybris/droid-hal-configs
 [submodule "sparse/usr/bin/droid/gestured"]
 	path = sparse/usr/bin/droid/gestured
 	url = https://github.com/sailfishos-oneplus5/gesture-daemon

@@ -1,9 +1,0 @@
-#!/bin/env bash
-# callaudiod: A temporary *very hacky* solution to enable call audio during voice calls.
-
-# Logging
-source /usr/bin/droid/logging.sh
-
-log "daemon started"
-runuser -l nemo -c 'bash /usr/bin/droid/callaudiod/callaudiod_user'
-wait

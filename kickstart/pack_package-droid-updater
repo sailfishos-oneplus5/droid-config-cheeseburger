@@ -1,13 +1,15 @@
 pushd $IMG_OUT_DIR # ./sfe-$DEVICE-$RELEASE_ID
 
 DEVICE=@DEVICE@
+EXTRA_NAME=@EXTRA_NAME@
+DATE=$(date +"%Y%m%d")
 
 # Source release info e.g. VERSION
 source ./os-release
 
 # Locate rootfs tar.bz2 archive
 for filename in *.tar.bz2; do
-	GEN_IMG_BASE=$(basename $filename .tar.bz2) # sfe-$DEVICE-3.0.3.10
+	GEN_IMG_BASE=$(basename $filename .tar.bz2) # sfe-$DEVICE-3.1.0.12
 done
 if [ ! -e "$GEN_IMG_BASE.tar.bz2" ]; then
 	echo "[hybris-installer] No rootfs archive found, exiting..."
@@ -20,8 +22,9 @@ IMAGE_SIZE=`echo "scale=2; 2.25 * $(du -h $GEN_IMG_BASE.tar.bz2 | cut -d'M' -f1)
 echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 
 # Output filenames
-DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID@EXTRA_NAME@ # sailfishos-$DEVICE-release-3.0.3.10
+DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID$EXTRA_NAME # sailfishos-$DEVICE-release-3.1.0.12
 DST_IMG=$DST_IMG_BASE.tar.bz2
+DST_IMG_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE.zip
 
 # Copy updater scripts, boot image & custom hybris-installer into updater .zip tree
 mkdir -p updater/META-INF/com/google/android
@@ -36,8 +39,8 @@ sed -e "s/%VERSION%/$VERSION/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -i updater/
 
 # Pack updater .zip
 pushd updater # sfe-$DEVICE-$RELEASE_ID/updater
-echo "[hybris-installer] Creating package '$DST_IMG_BASE.zip'..."
-zip -r ../$DST_IMG_BASE.zip .
+echo "[hybris-installer] Creating package '$DST_IMG_PKG.zip'..."
+zip -r ../$DST_IMG_PKG.zip .
 mv $DST_IMG ../$GEN_IMG_BASE.tar.bz2
 popd # sfe-$DEVICE-$RELEASE_ID
 

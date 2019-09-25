@@ -24,7 +24,7 @@ echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 # Output filenames
 DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID$EXTRA_NAME # sailfishos-$DEVICE-release-3.1.0.12
 DST_IMG=$DST_IMG_BASE.tar.bz2
-DST_IMG_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE.zip
+DST_IMG_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
 
 # Copy updater scripts, boot image & custom hybris-installer into updater .zip tree
 mkdir -p updater/META-INF/com/google/android
@@ -46,5 +46,12 @@ popd # sfe-$DEVICE-$RELEASE_ID
 
 # Clean up working directories
 rm -rf updater/
+
+# Calculate some checksums for the generated zip
+printf "[hybris-installer] Calculating MD5, SHA1 & SHA256 checksums for '$DST_IMG_PKG.zip'..."
+md5sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.md5sum
+sha1sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.sha1sum
+sha256sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.sha256sum
+echo " DONE!"
 
 popd # hadk source tree

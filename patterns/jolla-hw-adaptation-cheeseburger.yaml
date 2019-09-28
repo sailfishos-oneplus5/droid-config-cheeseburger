@@ -1,6 +1,3 @@
-# Feel free to disable non-critical HA parts during devel by commenting lines out
-# Generated in hadk by executing: rpm/dhd/helpers/add_new_device.sh
-
 Description: Pattern with packages for cheeseburger HW Adaptation
 Name: jolla-hw-adaptation-cheeseburger
 Requires:
@@ -13,7 +10,6 @@ Requires:
 - droid-config-cheeseburger-preinit-plugin
 - droid-config-cheeseburger-flashing
 - droid-config-cheeseburger-bluez5
-#- droid-hal-cheeseburger-detritus
 - droid-hal-version-cheeseburger
 
 # Hybris packages
@@ -28,6 +24,7 @@ Requires:
 - bluebinder
 
 # NFC
+- nfcd-binder-plugin
 - jolla-settings-system-nfc
 
 # Flashlight
@@ -39,11 +36,11 @@ Requires:
 # Vibra
 - ngfd-plugin-native-vibrator
 - qt5-feedback-haptics-native-vibrator
-# - qt5-feedback-haptics-ffmemless
 
 # Needed for /dev/touchscreen symlink
 - qt5-plugin-generic-evdev
 
+# Audio
 - pulseaudio-modules-droid
 - pulseaudio-modules-droid-hidl
 - pulseaudio-modules-droid-glue
@@ -57,12 +54,12 @@ Requires:
 
 # Add GStreamer v1.0 as standard
 - gstreamer1.0
+- gstreamer1.0-droid
 - gstreamer1.0-libav
 - gstreamer1.0-plugins-good
 - gstreamer1.0-plugins-base
 - gstreamer1.0-plugins-bad
 - nemo-gstreamer1.0-interfaces
-- gstreamer1.0-droid
 
 # This is needed for notification LEDs
 - mce-plugin-libhybris
@@ -70,6 +67,8 @@ Requires:
 ## USB mode controller
 # Enables mode selector upon plugging USB cable:
 - usb-moded
+- usb-moded-defaults-android
+- usb-moded-developer-mode-android
 # Connection sharing via USB (careful with roaming!)
 - usb-moded-connection-sharing-android-config
 

@@ -16,8 +16,4 @@ Obsoletes: ofono-configs-mer
 %define ofono_enable_plugins bluez5,hfp_ag_bluez5
 %define ofono_disable_plugins bluez4,dun_gw_bluez4,hfp_ag_bluez4,hfp_bluez4
 
-# Device-specific usb-moded configuration
-Provides: usb-moded-configs
-Obsoletes: usb-moded-defaults
-
 %include droid-configs-device/droid-configs.inc

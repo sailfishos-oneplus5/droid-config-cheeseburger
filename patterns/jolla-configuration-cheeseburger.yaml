@@ -1,6 +1,3 @@
-# Feel free to disable non-critical HA parts during devel by commenting lines out
-# Generated in hadk by executing: rpm/dhd/helpers/add_new_device.sh
-
 Description: Pattern with packages for cheeseburger configurations
 Name: jolla-configuration-cheeseburger
 Requires:
@@ -8,7 +5,6 @@ Requires:
 
 - patterns-sailfish-applications
 - patterns-sailfish-ui
-# For devices with cellular modem. Those without one, please comment out:
 - patterns-sailfish-cellular-apps
 # Early stages of porting benefit from these:
 - pattern:sailfish-porter-tools

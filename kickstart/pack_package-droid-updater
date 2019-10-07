@@ -7,7 +7,7 @@ DATE=$(date +"%Y%m%d") # 20190927
 # Source release info e.g. VERSION
 source ./os-release
 
-# Locate rootfs tar.bz2 archive
+# Locate rootfs .tar.bz2 archive
 for filename in *.tar.bz2; do
 	GEN_IMG_BASE=$(basename $filename .tar.bz2) # sfe-$DEVICE-3.1.0.12
 done
@@ -18,38 +18,34 @@ fi
 
 # Roughly estimate the final rootfs size when installed
 IMAGE_SIZE=`echo "scale=2; 2.25 * $(du -h $GEN_IMG_BASE.tar.bz2 | cut -d'M' -f1)" | bc`
-#IMAGE_SIZE=`echo "scale=2; $(bzcat $GEN_IMG_BASE.tar.bz2 | wc -c) / 1024 / 1024" | bc` # <- way too slow to be practical
 echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 
 # Output filenames
-DST_IMG_FS=sfos-rootfs.tar.bz2
-DST_IMG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
+DST_IMG=sfos-rootfs.tar.bz2
+DST_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
 
-# Copy updater scripts, boot image & custom hybris-installer into updater .zip tree
-mkdir -p updater/META-INF/com/google/android
-mv update-binary updater/META-INF/com/google/android/
-mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG_FS
+# Copy rootfs & hybris-installer scripts into updater .zip tree
+mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
 cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 
-# Update scripts with image details
-sed -e "s/%IMAGE_FILE%/$DST_IMG_FS/g" -i updater/META-INF/com/google/android/updater-script
-sed -e "s/%VERSION%/$VERSION/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -i updater/custom-install.sh
+# Update install script with image details
+sed -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -e "s/%VERSION%/$VERSION/g" -i updater/META-INF/com/google/android/update-binary
 
 # Pack updater .zip
 pushd updater # sfe-$DEVICE-$RELEASE_ID/updater
-echo "[hybris-installer] Creating package '$DST_IMG.zip'..."
-zip -r ../$DST_IMG.zip .
-mv $DST_IMG_FS ../$GEN_IMG_BASE.tar.bz2
+echo "[hybris-installer] Creating package '$DST_PKG.zip'..."
+zip -r ../$DST_PKG.zip .
+mv $DST_IMG ../$GEN_IMG_BASE.tar.bz2
 popd # sfe-$DEVICE-$RELEASE_ID
 
-# Clean up working directories
+# Clean up working directory
 rm -rf updater/
 
 # Calculate some checksums for the generated zip
-printf "[hybris-installer] Calculating MD5, SHA1 & SHA256 checksums for '$DST_IMG.zip'..."
-md5sum $DST_IMG.zip > $DST_IMG.zip.md5sum
-sha1sum $DST_IMG.zip > $DST_IMG.zip.sha1sum
-sha256sum $DST_IMG.zip > $DST_IMG.zip.sha256sum
+printf "[hybris-installer] Calculating MD5, SHA1 & SHA256 checksums for '$DST_PKG.zip'..."
+md5sum $DST_PKG.zip > $DST_PKG.zip.md5sum
+sha1sum $DST_PKG.zip > $DST_PKG.zip.sha1sum
+sha256sum $DST_PKG.zip > $DST_PKG.zip.sha256sum
 echo " DONE!"
 
 popd # hadk source tree

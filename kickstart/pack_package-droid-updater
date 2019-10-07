@@ -25,6 +25,7 @@ DST_IMG=sfos-rootfs.tar.bz2
 DST_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
 
 # Copy rootfs & hybris-installer scripts into updater .zip tree
+mkdir updater/
 mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
 cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 

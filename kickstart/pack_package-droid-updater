@@ -2,7 +2,7 @@ pushd $IMG_OUT_DIR # ./sfe-$DEVICE-$RELEASE_ID
 
 DEVICE=@DEVICE@
 EXTRA_NAME=@EXTRA_NAME@
-DATE=$(date +"%Y%m%d")
+DATE=$(date +"%Y%m%d") # 20190927
 
 # Source release info e.g. VERSION
 source ./os-release
@@ -22,36 +22,34 @@ IMAGE_SIZE=`echo "scale=2; 2.25 * $(du -h $GEN_IMG_BASE.tar.bz2 | cut -d'M' -f1)
 echo "[hybris-installer] Estimated rootfs size when installed: ${IMAGE_SIZE}M"
 
 # Output filenames
-DST_IMG_BASE=$ID-$DEVICE-$SAILFISH_FLAVOUR-$VERSION_ID$EXTRA_NAME # sailfishos-$DEVICE-release-3.1.0.12
-DST_IMG=$DST_IMG_BASE.tar.bz2
-DST_IMG_PKG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
+DST_IMG_FS=sfos-rootfs.tar.bz2
+DST_IMG=$ID-$VERSION_ID-$DATE-$DEVICE$EXTRA_NAME # sailfishos-3.1.0.12-20190920-$DEVICE
 
 # Copy updater scripts, boot image & custom hybris-installer into updater .zip tree
 mkdir -p updater/META-INF/com/google/android
 mv update-binary updater/META-INF/com/google/android/
-mv hybris-boot.img updater/
-mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
+mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG_FS
 cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 
 # Update scripts with image details
-sed -e "s/%IMAGE_FILE%/$DST_IMG/g" -i updater/META-INF/com/google/android/updater-script
+sed -e "s/%IMAGE_FILE%/$DST_IMG_FS/g" -i updater/META-INF/com/google/android/updater-script
 sed -e "s/%VERSION%/$VERSION/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -i updater/custom-install.sh
 
 # Pack updater .zip
 pushd updater # sfe-$DEVICE-$RELEASE_ID/updater
-echo "[hybris-installer] Creating package '$DST_IMG_PKG.zip'..."
-zip -r ../$DST_IMG_PKG.zip .
-mv $DST_IMG ../$GEN_IMG_BASE.tar.bz2
+echo "[hybris-installer] Creating package '$DST_IMG.zip'..."
+zip -r ../$DST_IMG.zip .
+mv $DST_IMG_FS ../$GEN_IMG_BASE.tar.bz2
 popd # sfe-$DEVICE-$RELEASE_ID
 
 # Clean up working directories
 rm -rf updater/
 
 # Calculate some checksums for the generated zip
-printf "[hybris-installer] Calculating MD5, SHA1 & SHA256 checksums for '$DST_IMG_PKG.zip'..."
-md5sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.md5sum
-sha1sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.sha1sum
-sha256sum $DST_IMG_PKG.zip > $DST_IMG_PKG.zip.sha256sum
+printf "[hybris-installer] Calculating MD5, SHA1 & SHA256 checksums for '$DST_IMG.zip'..."
+md5sum $DST_IMG.zip > $DST_IMG.zip.md5sum
+sha1sum $DST_IMG.zip > $DST_IMG.zip.sha1sum
+sha256sum $DST_IMG.zip > $DST_IMG.zip.sha256sum
 echo " DONE!"
 
 popd # hadk source tree

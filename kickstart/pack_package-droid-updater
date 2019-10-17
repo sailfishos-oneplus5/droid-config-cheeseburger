@@ -30,7 +30,9 @@ mv $GEN_IMG_BASE.tar.bz2 updater/$DST_IMG
 cp -r ../hybris/hybris-installer/hybris-installer/* updater/
 
 # Update install script with image details
-sed -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -e "s/%VERSION%/$VERSION/g" -i updater/META-INF/com/google/android/update-binary
+LOS_VER="16.0"
+[ -d "$ANDROID_ROOT/hardware/qcom/audio-caf/msm8998/policy_hal/" ] && LOS_VER="15.1"
+sed -e "s/%DEVICE%/$DEVICE/g" -e "s/%VERSION%/$VERSION/g" -e "s/%DATE%/$DATE/g" -e "s/%IMAGE_SIZE%/${IMAGE_SIZE}M/g" -e "s/%DST_PKG%/$DST_PKG/g" -e "s/%LOS_VER%/$LOS_VER/g" -i updater/META-INF/com/google/android/update-binary
 
 # Pack updater .zip
 pushd updater # sfe-$DEVICE-$RELEASE_ID/updater

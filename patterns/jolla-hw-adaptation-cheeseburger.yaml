@@ -2,6 +2,7 @@ Description: Pattern with packages for cheeseburger HW Adaptation
 Name: jolla-hw-adaptation-cheeseburger
 Requires:
 - droid-hal-cheeseburger
+- droid-hal-cheeseburger-detritus
 - droid-hal-cheeseburger-img-boot
 - droid-hal-cheeseburger-kernel-modules
 - droid-config-cheeseburger-sailfish

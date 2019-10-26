@@ -1,23 +1,51 @@
 # Disable some Android side services for SFOS by pointing them to a non-existing files.
 # Further service definitions will be ignored and these ones have to be included first.
 
-service qti qti_HYBRIS_DISABLED
-service time_daemon time_daemon_HYBRIS_DISABLED
-
-# Import init.qcom.rc AFTER qti & time_daemon are disabled
-import /vendor/etc/init/hw/init.qcom.rc
-
 service audioserver audioserver_HYBRIS_DISABLED
+    disabled
+    override
 service cameraserver cameraserver_HYBRIS_DISABLED
-service keystore keystore_HYBRIS_DISABLED
-service media mediaserver_HYBRIS_DISABLED
-service netd netd_HYBRIS_DISABLED
-service surfaceflinger surfaceflinger_HYBRIS_DISABLED
-service wificond wificond_HYBRIS_DISABLED
-service keymaster-3-0 android.hardware.keymaster@3.0-service_HYBRIS_DISABLED
-service vold vold_HYBRIS_DISABLED
+    disabled
+    override
 service installd installd_HYBRIS_DISABLED
+    disabled
+    override
+service keymaster-3-0 android.hardware.keymaster@3.0-service_HYBRIS_DISABLED
+    disabled
+    override
+service keystore keystore_HYBRIS_DISABLED
+    disabled
+    override
 service lmkd lmkd_HYBRIS_DISABLED
+    disabled
+    override
+service media mediaserver_HYBRIS_DISABLED
+    disabled
+    override
+service netd netd_HYBRIS_DISABLED
+    disabled
+    override
+service qti qti_HYBRIS_DISABLED
+    disabled
+    override
 service storaged storaged_HYBRIS_DISABLED
+    disabled
+    override
+service surfaceflinger surfaceflinger_HYBRIS_DISABLED
+    disabled
+    override
+service time_daemon time_daemon_HYBRIS_DISABLED
+    disabled
+    override
 service update_engine update_engine_HYBRIS_DISABLED
+    disabled
+    override
 service vendor.audio-hal-2-0 android.hardware.audio@2.0-service_HYBRIS_DISABLED
+    disabled
+    override
+service vold vold_HYBRIS_DISABLED
+    disabled
+    override
+service wificond wificond_HYBRIS_DISABLED
+    disabled
+    override

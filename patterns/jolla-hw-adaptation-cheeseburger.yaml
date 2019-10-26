@@ -44,7 +44,6 @@ Requires:
 # Audio
 - pulseaudio-modules-droid
 - pulseaudio-modules-droid-hidl
-- pulseaudio-modules-droid-glue
 # for audio recording to work:
 - qt5-qtmultimedia-plugin-mediaservice-gstmediacapture
 

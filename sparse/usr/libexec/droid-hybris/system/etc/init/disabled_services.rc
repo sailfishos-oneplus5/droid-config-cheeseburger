@@ -43,6 +43,9 @@ service update_engine update_engine_HYBRIS_DISABLED
 service vendor.audio-hal-2-0 android.hardware.audio@2.0-service_HYBRIS_DISABLED
     disabled
     override
+service vendor.dataqti qti_HYBRIS_DISABLED
+    disabled
+    override
 service vold vold_HYBRIS_DISABLED
     disabled
     override

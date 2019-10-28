@@ -74,8 +74,6 @@ on post-fs-data
 # For cpusets initialize for Silver Only first and then Silver + Gold
 # Silver Only configuration cannot work with 0-7
 on boot
-    start rmt_storage
-    start rfs_access
     write /dev/cpuset/top-app/cpuset.cpus 0-3
     write /dev/cpuset/foreground/cpuset.cpus 0-3
     write /dev/cpuset/foreground/boost/cpuset.cpus 0-3

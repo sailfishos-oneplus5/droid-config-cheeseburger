@@ -10,7 +10,7 @@ service cameraserver cameraserver_HYBRIS_DISABLED
 service installd installd_HYBRIS_DISABLED
     disabled
     override
-service keymaster-3-0 android.hardware.keymaster@3.0-service_HYBRIS_DISABLED
+service keymaster-3-0 keymaster_HYBRIS_DISABLED
     disabled
     override
 service keystore keystore_HYBRIS_DISABLED
@@ -28,6 +28,9 @@ service netd netd_HYBRIS_DISABLED
 service qti qti_HYBRIS_DISABLED
     disabled
     override
+service qti-testscripts qti-testscripts_HYBRIS_DISABLED
+    disabled
+    override
 service storaged storaged_HYBRIS_DISABLED
     disabled
     override
@@ -40,10 +43,19 @@ service time_daemon time_daemon_HYBRIS_DISABLED
 service update_engine update_engine_HYBRIS_DISABLED
     disabled
     override
-service vendor.audio-hal-2-0 android.hardware.audio@2.0-service_HYBRIS_DISABLED
+service update_verifier update_verifier_HYBRIS_DISABLED
+    disabled
+    override
+service update_verifier_nonencrypted update_verifier_nonencrypted_HYBRIS_DISABLED
+    disabled
+    override
+service vendor.audio-hal-2-0 audio-hal_HYBRIS_DISABLED
     disabled
     override
 service vendor.dataqti qti_HYBRIS_DISABLED
+    disabled
+    override
+service vendor.livedisplay-hal-2-0 livedisplay-hal_HYBRIS_DISABLED
     disabled
     override
 service vold vold_HYBRIS_DISABLED

@@ -1,0 +1,14 @@
+[Unit]
+Description=Load WLAN module
+Conflicts=shutdown.target actdead.target
+
+[Service]
+Type=simple
+ExecStart=/sbin/modprobe wlan
+ExecStop=/sbin/modprobe -r wlan
+RemainAfterExit=yes
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

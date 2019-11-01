@@ -67,10 +67,6 @@ Requires:
 ## USB mode controller
 # Enables mode selector upon plugging USB cable:
 - usb-moded
-- usb-moded-defaults-android
-- usb-moded-developer-mode-android
-# Connection sharing via USB (careful with roaming!)
-- usb-moded-connection-sharing-android-config
 
 # hammerhead, grouper, and maguro use this in scripts, so include for all
 - rfkill

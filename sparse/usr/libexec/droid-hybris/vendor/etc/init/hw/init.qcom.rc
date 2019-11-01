@@ -417,13 +417,6 @@ on post-fs-data
     #Start move_wifi_data service.
     start vendor.move_wifi_data
 
-service iop /system/vendor/bin/iop
-    class main
-    user root
-    group root
-    disabled
-    socket iop seqpacket 0666 root system
-
 service qcomsysd /system/vendor/bin/qcom-system-daemon
     class main
     user root
@@ -627,22 +620,8 @@ service qmiproxy /system/bin/qmiproxy
     group radio diag
     disabled
 
-# QMUX must be in multiple groups to support external process connections
-service vendor.qmuxd /system/vendor/bin/qmuxd
-    class main
-    user radio
-    group radio audio bluetooth gps nfc diag
-    disabled
-
 service vendor.netmgrd /system/vendor/bin/netmgrd
     class main
-    disabled
-
-service vendor.ipacm-diag /system/vendor/bin/ipacm-diag
-    class main
-    user radio
-    socket ipacm_log_file dgram 660 radio radio
-    group radio diag oem_2901
     disabled
 
 service vendor.ipacm /system/vendor/bin/ipacm
@@ -655,18 +634,6 @@ service vendor.dataqti /system/vendor/bin/qti
     class main
     user radio
     group radio oem_2901 diag usb net_admin
-    disabled
-
-service vendor.dataadpl /system/vendor/bin/adpl
-    class main
-    user radio
-    group radio oem_2901 diag usb net_admin
-    disabled
-
-service vendor.sensors /vendor/bin/sscrpcd
-    class core
-    user system
-    group system
     disabled
 
 service vendor.sensors.qti /vendor/bin/sensors.qti

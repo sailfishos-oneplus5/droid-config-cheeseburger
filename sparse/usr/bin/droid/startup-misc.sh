@@ -1,5 +1,5 @@
 #!/bin/env bash
-# A miscellaneous preparation script to run on device startup.
+# startup-misc - A miscellaneous preparation script to run on device startup.
 
 # Enable backlight for physical buttons
 echo 1 > /sys/class/leds/button-backlight/brightness

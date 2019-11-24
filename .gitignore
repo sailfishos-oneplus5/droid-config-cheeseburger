@@ -1,0 +1,5 @@
+installroot/
+RPMS/
+tmp/
+.mb2/
+documentation.list

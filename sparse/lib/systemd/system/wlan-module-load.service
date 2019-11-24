@@ -4,6 +4,7 @@ Conflicts=shutdown.target actdead.target
 
 [Service]
 Type=simple
+ExecStartPre=/bin/touch /dev/wcnss_wlan
 ExecStart=/sbin/modprobe wlan
 ExecStop=/sbin/modprobe -r wlan
 RemainAfterExit=yes

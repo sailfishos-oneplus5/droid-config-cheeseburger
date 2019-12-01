@@ -79,10 +79,10 @@ Requires:
 - geoclue-provider-hybris
 
 # OnePlus 5 specific packages
-- triambience
+- triambienced
 - onyx-triambience-settings-plugin
-#- gestured
-#- onyx-gesture-settings-plugin
+- gestured
+- onyx-gesture-settings-plugin
 
 # Other packages
 - mce-tools

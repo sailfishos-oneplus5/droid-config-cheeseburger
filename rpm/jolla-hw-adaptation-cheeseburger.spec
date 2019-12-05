@@ -9,7 +9,7 @@ License: BSD-3-Clause
 Source: %{name}-%{version}.tar.gz
 
 # Include device specific HW adaptation configuration
-%inlcude rpm/jolla-hw-adaptation-cheeseburger.inc
+%include rpm/jolla-hw-adaptation-cheeseburger.inc
 
 %description
 Meta-package to install packages for %{device} HW Adaptation

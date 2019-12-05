@@ -9,7 +9,7 @@ License: BSD-3-Clause
 Source: %{name}-%{version}.tar.gz
 
 # Include general Jolla & Sailfish OS configuration
-%inlcude rpm/jolla-configuration-cheeseburger.inc
+%include rpm/jolla-configuration-cheeseburger.inc
 
 %description
 Meta-package to install packages for %{device} configurations

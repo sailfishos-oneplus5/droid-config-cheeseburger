@@ -51,7 +51,7 @@ Requires: openssh-server
 Requires: vim-enhanced
 Requires: zypper
 Requires: strace
-#Requires: jolla-rnd-device
+Requires: jolla-rnd-device
 #Requires: libhybris-tests
 # End sailfish-porter-tools
 

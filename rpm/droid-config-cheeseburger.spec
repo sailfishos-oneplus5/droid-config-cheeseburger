@@ -7,7 +7,7 @@
 
 %define community_adaptation 1
 %define use_meta_package 1
-%define pixel_ratio 1.8
+%define pixel_ratio 1.75
 
 # Device-specific usb-moded configuration
 Provides: usb-moded-configs

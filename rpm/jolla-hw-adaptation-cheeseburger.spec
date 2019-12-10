@@ -3,7 +3,7 @@
 
 Name: jolla-hw-adaptation-%{device}
 Summary: Jolla HW Adaptation %{device}
-Version: 1.1.1
+Version: 1.1.2
 Release: 1
 License: BSD-3-Clause
 Source: %{name}-%{version}.tar.gz

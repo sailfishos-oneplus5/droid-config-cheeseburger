@@ -1,0 +1,2 @@
+SELINUX=disabled
+AUTORELABEL=0

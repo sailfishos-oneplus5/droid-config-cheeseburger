@@ -56,6 +56,7 @@ Requires: jolla-rnd-device
 # End sailfish-porter-tools
 
 # Miscellaneous packages
+Requires: less
 Requires: htop
 #Requires: mce-tools
 #Requires: nano

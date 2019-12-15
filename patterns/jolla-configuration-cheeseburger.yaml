@@ -46,6 +46,7 @@ Requires:
 #- policycoreutils
 
 # Miscellaneous packages
+- less
 - htop
 #- mce-tools
 #- nano

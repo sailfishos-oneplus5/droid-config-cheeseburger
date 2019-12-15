@@ -11,11 +11,10 @@ Requires:
 
 - sailfish-content-graphics-z@ICON_RES@
 
-# For multi-SIM devices
+# Extended settings functionality
+- jolla-settings-system-nfc
+- jolla-settings-system-flashlight
 - jolla-settings-networking-multisim
-
-# Introduced starting Sailfish OS 2.0.4.x:
-# 3rd party accounts like Twitter, VK, cloud services, etc
 - jolla-settings-accounts-extensions-3rd-party-all
 
 # Introduced starting Sailfish OS 2.1.1.26
@@ -32,5 +31,23 @@ Requires:
 # Devices with 2G or more memory should also include this booster
 # to improve camera startup times and the like
 - mapplauncherd-booster-silica-qt5-media
+
+# Enable device lock and allow to select untrusted software
+- jolla-devicelock-daemon-encsfa
+#- jolla-devicelock-plugin-encsfa
+
+# Enable /home encryption
+#- sailfish-device-encryption
+
+# SELinux
+#- libselinux-utils
+#- libselinux-utils-extra
+#- setools
+#- policycoreutils
+
+# Miscellaneous packages
+- htop
+#- mce-tools
+#- nano
 
 Summary: Jolla Configuration cheeseburger

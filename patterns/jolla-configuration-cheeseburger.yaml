@@ -6,9 +6,6 @@ Requires:
 - patterns-sailfish-applications
 - patterns-sailfish-ui
 - patterns-sailfish-cellular-apps
-# Early stages of porting benefit from these:
-- pattern:sailfish-porter-tools
-
 - sailfish-content-graphics-z@ICON_RES@
 
 # Extended settings functionality
@@ -50,5 +47,8 @@ Requires:
 - htop
 #- mce-tools
 #- nano
+
+# Early stages of porting benefit from these:
+- pattern:sailfish-porter-tools
 
 Summary: Jolla Configuration cheeseburger

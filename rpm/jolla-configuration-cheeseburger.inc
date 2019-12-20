@@ -3,7 +3,6 @@ Requires: jolla-hw-adaptation-%{device}
 Requires: patterns-sailfish-applications
 Requires: patterns-sailfish-ui
 Requires: patterns-sailfish-cellular-apps
-
 Requires: sailfish-content-graphics-z1.75
 
 # Extended settings functionality
@@ -40,6 +39,12 @@ Requires: jolla-devicelock-daemon-encsfa
 #Requires: setools
 #Requires: policycoreutils
 
+# Miscellaneous packages
+Requires: less
+Requires: htop
+#Requires: mce-tools
+#Requires: nano
+
 # Early stages of porting benefit from these:
 # On the basis of sailfish-porter-tools
 Requires: jolla-developer-mode
@@ -54,9 +59,3 @@ Requires: strace
 Requires: jolla-rnd-device
 #Requires: libhybris-tests
 # End sailfish-porter-tools
-
-# Miscellaneous packages
-Requires: less
-Requires: htop
-#Requires: mce-tools
-#Requires: nano

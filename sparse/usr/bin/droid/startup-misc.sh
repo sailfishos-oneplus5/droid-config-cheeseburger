@@ -1,9 +1,6 @@
 #!/bin/env bash
 # startup-misc - A miscellaneous preparation script to run on device startup.
 
-# Enable backlight for physical buttons
-echo 1 > /sys/class/leds/button-backlight/brightness
-
 # We're done here if this isn't the first boot
 [ ! -f /var/tmp/make-droid-links ] && exit 0
 

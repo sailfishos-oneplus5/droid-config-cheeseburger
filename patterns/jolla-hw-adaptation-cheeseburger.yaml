@@ -4,7 +4,7 @@ Requires:
 - droid-hal-cheeseburger
 - droid-hal-cheeseburger-detritus
 - droid-hal-cheeseburger-img-boot
-#droid-hal-cheeseburger-img-recovery
+#- droid-hal-cheeseburger-img-recovery
 - droid-hal-cheeseburger-kernel-modules
 - droid-config-cheeseburger-sailfish
 - droid-config-cheeseburger-pulseaudio-settings

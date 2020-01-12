@@ -1,8 +1,0 @@
-KERNEL=="event0", SUBSYSTEM=="input", ATTRS{name}=="qpnp_pon", ACTION=="add", SYMLINK+="power_button"
-KERNEL=="event1", SUBSYSTEM=="input", ATTRS{name}=="fpc1020", ACTION=="add", SYMLINK+="home_button"
-KERNEL=="event2", SUBSYSTEM=="input", ATTRS{name}=="hbtp_vm", ACTION=="add", SYMLINK+="hbtp_vm"
-KERNEL=="event3", SUBSYSTEM=="input", ATTRS{name}=="tri-state-key", ACTION=="add", SYMLINK+="notification_slider"
-KERNEL=="event4", SUBSYSTEM=="input", ATTRS{name}=="synaptics,s3320", ACTION=="add", SYMLINK+="touchscreen"
-KERNEL=="event5", SUBSYSTEM=="input", ATTRS{name}=="gpio-keys", ACTION=="add", SYMLINK+="volume_rocker"
-KERNEL=="event6", SUBSYSTEM=="input", ATTRS{name}=="msm8998-tasha-snd-card Headset Jack", ACTION=="add", SYMLINK+="audio_jack"
-KERNEL=="event7", SUBSYSTEM=="input", ATTRS{name}=="msm8998-tasha-snd-card Button Jack", ACTION=="add", SYMLINK+="button_jack"

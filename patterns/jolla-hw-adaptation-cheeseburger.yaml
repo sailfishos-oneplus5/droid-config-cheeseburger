@@ -2,7 +2,9 @@ Description: Pattern with packages for cheeseburger HW Adaptation
 Name: jolla-hw-adaptation-cheeseburger
 Requires:
 - droid-hal-cheeseburger
+- droid-hal-cheeseburger-detritus
 - droid-hal-cheeseburger-img-boot
+#droid-hal-cheeseburger-img-recovery
 - droid-hal-cheeseburger-kernel-modules
 - droid-config-cheeseburger-sailfish
 - droid-config-cheeseburger-pulseaudio-settings
@@ -25,10 +27,6 @@ Requires:
 
 # NFC
 - nfcd-binder-plugin
-- jolla-settings-system-nfc
-
-# Flashlight
-- jolla-settings-system-flashlight
 
 # Sensors
 - hybris-libsensorfw-qt5
@@ -43,9 +41,11 @@ Requires:
 # Audio
 - pulseaudio-modules-droid
 - pulseaudio-modules-droid-hidl
-- pulseaudio-modules-droid-glue
 # for audio recording to work:
 - qt5-qtmultimedia-plugin-mediaservice-gstmediacapture
+
+# Camera
+- audioflingerglue
 
 # These need to be per-device due to differing backends (fbdev, eglfs, hwc, ..?)
 - qt5-qtwayland-wayland_egl
@@ -67,29 +67,17 @@ Requires:
 ## USB mode controller
 # Enables mode selector upon plugging USB cable:
 - usb-moded
-- usb-moded-defaults-android
-- usb-moded-developer-mode-android
-# Connection sharing via USB (careful with roaming!)
-- usb-moded-connection-sharing-android-config
 
 # hammerhead, grouper, and maguro use this in scripts, so include for all
 - rfkill
-
-# enable device lock and allow to select untrusted software
-- jolla-devicelock-daemon-encsfa
 
 # For GPS
 - geoclue-provider-hybris
 
 # OnePlus 5 specific packages
-- triambience
+- triambienced
 - onyx-triambience-settings-plugin
-#- gestured
-#- onyx-gesture-settings-plugin
-
-# Other packages
-- mce-tools
-- nano
-- htop
+- gestured
+- onyx-gesture-settings-plugin
 
 Summary: Jolla HW Adaptation cheeseburger

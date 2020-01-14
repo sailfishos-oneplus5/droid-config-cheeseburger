@@ -10,4 +10,7 @@ if [[ $- = *i* && -x `command -v less` ]]; then
 
 	# stop using 'more' :)
 	export PAGER=less
+
+	# fixup 'systemctl' command colors & output formatting
+	alias systemctl="PAGER= systemctl"
 fi

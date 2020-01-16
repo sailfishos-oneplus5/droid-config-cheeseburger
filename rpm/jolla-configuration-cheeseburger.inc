@@ -1,5 +1,3 @@
-Requires: jolla-hw-adaptation-%{device}
-
 Requires: patterns-sailfish-applications
 Requires: patterns-sailfish-ui
 Requires: patterns-sailfish-cellular-apps

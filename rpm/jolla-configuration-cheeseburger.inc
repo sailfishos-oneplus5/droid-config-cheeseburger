@@ -42,20 +42,20 @@ Requires: jolla-devicelock-daemon-encsfa
 # Miscellaneous packages
 Requires: less
 Requires: htop
+Requires: nano
 #Requires: mce-tools
-#Requires: nano
 
 # Early stages of porting benefit from these:
 # On the basis of sailfish-porter-tools
-Requires: jolla-developer-mode
-Requires: sailfishsilica-qt5-demos
-Requires: busybox-static
-Requires: net-tools
-Requires: openssh-clients
-Requires: openssh-server
-Requires: vim-enhanced
-Requires: zypper
-Requires: strace
-Requires: jolla-rnd-device
+#Requires: jolla-developer-mode
+#Requires: sailfishsilica-qt5-demos
+#Requires: busybox-static
+#Requires: net-tools
+#Requires: openssh-clients
+#Requires: openssh-server
+#Requires: vim-enhanced
+#Requires: zypper
+#Requires: strace
+#Requires: jolla-rnd-device
 #Requires: libhybris-tests
 # End sailfish-porter-tools

@@ -62,8 +62,7 @@ Requires: nemo-gstreamer1.0-interfaces
 # This is needed for notification LEDs
 Requires: mce-plugin-libhybris
 
-## USB mode controller
-# Enables mode selector upon plugging USB cable:
+# USB mode controller
 Requires: usb-moded
 
 # hammerhead, grouper, and maguro use this in scripts, so include for all

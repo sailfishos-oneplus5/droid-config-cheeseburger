@@ -31,7 +31,6 @@ Requires:
 
 # Enable device lock and allow to select untrusted software
 - jolla-devicelock-daemon-encsfa
-#- jolla-devicelock-plugin-encsfa
 
 # Enable /home encryption
 #- sailfish-device-encryption
@@ -41,12 +40,6 @@ Requires:
 #- libselinux-utils-extra
 #- setools
 #- policycoreutils
-
-# Miscellaneous packages
-- less
-- htop
-- nano
-#- mce-tools
 
 # Early stages of porting benefit from these:
 #- pattern:sailfish-porter-tools

@@ -26,7 +26,6 @@ Requires: mapplauncherd-booster-silica-qt5-media
 
 # Enable device lock and allow to select untrusted software
 Requires: jolla-devicelock-daemon-encsfa
-#Requires: jolla-devicelock-plugin-encsfa
 
 # Enable /home encryption
 #Requires: sailfish-device-encryption
@@ -36,12 +35,6 @@ Requires: jolla-devicelock-daemon-encsfa
 #Requires: libselinux-utils-extra
 #Requires: setools
 #Requires: policycoreutils
-
-# Miscellaneous packages
-Requires: less
-Requires: htop
-Requires: nano
-#Requires: mce-tools
 
 # Early stages of porting benefit from these:
 # On the basis of sailfish-porter-tools

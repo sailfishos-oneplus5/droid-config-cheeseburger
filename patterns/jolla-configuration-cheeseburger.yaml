@@ -45,10 +45,10 @@ Requires:
 # Miscellaneous packages
 - less
 - htop
+- nano
 #- mce-tools
-#- nano
 
 # Early stages of porting benefit from these:
-- pattern:sailfish-porter-tools
+#- pattern:sailfish-porter-tools
 
 Summary: Jolla Configuration cheeseburger

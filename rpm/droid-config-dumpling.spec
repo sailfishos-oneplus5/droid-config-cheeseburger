@@ -1,9 +1,9 @@
 # Reference: ../droid-configs-device/droid-configs.inc
 
-%include rpm/header-cheeseburger.inc
+%include rpm/header-dumpling.inc
 
 %define vendor_pretty OnePlus
-%define device_pretty OnePlus 5
+%define device_pretty OnePlus 5T
 
 %define community_adaptation 1
 %define use_meta_package 1

@@ -3,14 +3,17 @@
 
 Name: jolla-configuration-%{device}
 Summary: Jolla Configuration %{device}
-Version: 1.1.2
-Release: 1
+Version: 1.3.1
+Release: 0
 License: BSD-3-Clause
 Source: %{name}-%{version}.tar.gz
 
-# Include general Jolla & Sailfish OS configuration
+# Packages required for the device HW adaptation
+%include rpm/jolla-hw-adaptation-cheeseburger.inc
+
+# General Jolla & Sailfish OS configuration packages
 %include rpm/jolla-configuration-cheeseburger.inc
 
 %description
-Meta-package to install packages for %{device} configurations
+Meta-package to install packages for %{device} HW adaptation configurations
 %files

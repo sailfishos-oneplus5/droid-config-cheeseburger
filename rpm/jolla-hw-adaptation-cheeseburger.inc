@@ -20,6 +20,9 @@ Requires: libhybris-libwayland-egl
 # Telephony
 Requires: ofono-ril-binder-plugin
 
+# Cellular data
+Requires: dummy_netd
+
 # Bluetooth
 Requires: bluebinder
 

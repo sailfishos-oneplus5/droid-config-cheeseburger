@@ -3,7 +3,7 @@
 %include rpm/header-cheeseburger.inc
 
 %define vendor_pretty OnePlus
-%define device_pretty OnePlus 5
+%define device_pretty OnePlus 5 (A5000)
 
 %define community_adaptation 1
 %define use_meta_package 1

@@ -3,7 +3,7 @@
 
 Name: jolla-configuration-%{device}
 Summary: Jolla Configuration %{device}
-Version: 1.3.1
+Version: 1.4.0
 Release: 0
 License: BSD-3-Clause
 Source: %{name}-%{version}.tar.gz

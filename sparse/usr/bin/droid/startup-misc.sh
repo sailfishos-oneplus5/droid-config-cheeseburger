@@ -4,6 +4,9 @@
 # We're done here if this isn't the first boot
 [ -f /var/tmp/made-droid-links ] && exit 0
 
+# Required for gesture-daemon (https://git.io/JerMg) to work since SFOS 3.3
+gpasswd -a nemo system
+
 # Android Storage linking
 m_path="/data/media"
 [ -d "$m_path/0" ] && m_path+="/0"

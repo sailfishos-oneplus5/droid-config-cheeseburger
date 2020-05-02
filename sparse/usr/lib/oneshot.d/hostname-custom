@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 if [ ! -f /etc/hostname ]; then
-	hostnamectl set-hostname `ssu-sysinfo --pretty-name | cut -d'(' -f1 | xargs`
+	hostnamectl set-hostname "$(ssu-sysinfo --pretty-name | cut -d'(' -f1 | xargs)"
 fi

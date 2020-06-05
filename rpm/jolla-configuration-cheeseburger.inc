@@ -32,7 +32,6 @@ Requires: sailfish-fpd-community
 Requires: sailfish-devicelock-fpd
 Requires: droid-biometry-fp
 
-
 # Enable /home encryption (LVM setup needed)
 #Requires: sailfish-device-encryption
 

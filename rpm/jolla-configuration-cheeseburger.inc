@@ -25,9 +25,15 @@ Requires: csd
 Requires: mapplauncherd-booster-silica-qt5-media
 
 # Enable device lock and allow to select untrusted software
-Requires: jolla-devicelock-daemon-encsfa
+#Requires: jolla-devicelock-daemon-encsfa
 
-# Enable /home encryption
+# Fingerprint unlocking daemon for community ports
+Requires: sailfish-fpd-community
+Requires: sailfish-devicelock-fpd
+Requires: droid-biometry-fp
+
+
+# Enable /home encryption (LVM setup needed)
 #Requires: sailfish-device-encryption
 
 # SELinux

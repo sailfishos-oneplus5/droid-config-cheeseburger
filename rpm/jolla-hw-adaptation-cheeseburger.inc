@@ -46,7 +46,7 @@ Requires: pulseaudio-modules-droid-hidl
 Requires: qt5-qtmultimedia-plugin-mediaservice-gstmediacapture
 
 # Camera
-Requires: audioflingerglue
+Requires: audiosystem-passthrough-dummy-af
 
 # These need to be per-device due to differing backends (fbdev, eglfs, hwc, ..?)
 Requires: qt5-qtwayland-wayland_egl

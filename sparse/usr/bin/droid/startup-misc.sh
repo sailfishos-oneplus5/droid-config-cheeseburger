@@ -4,13 +4,16 @@
 # We're done here if this isn't the first boot
 [ -f /var/tmp/made-droid-links ] && exit 0
 
-# Android Storage linking
-m_path="/data/android/media"
-[ -d "$m_path/0" ] && m_path+="/0"
-
 # Determine username since SFOS 3.4.0
 user="nemo"
 [ -d /home/defaultuser ] && user="defaultuser"
+
+# Required for gesture-daemon (https://git.io/JerMg) to work since SFOS 3.3
+gpasswd -a $user system
+
+# Android Storage linking
+m_path="/data/android/media"
+[ -d "$m_path/0" ] && m_path+="/0"
 
 # TODO: Start symlinking in Pictures/Android, Music/Android, ...
 rm -f /home/$user/android_storage /sdcard

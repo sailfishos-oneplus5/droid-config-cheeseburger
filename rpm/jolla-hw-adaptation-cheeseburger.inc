@@ -3,7 +3,6 @@ Requires: droid-hal-%{device}-detritus
 Requires: droid-hal-%{device}-img-boot
 #Requires: droid-hal-%{device}-img-recovery
 Requires: droid-hal-%{device}-kernel-modules
-Requires: droid-hal-%{device}-tools
 Requires: droid-config-%{device}-sailfish
 Requires: droid-config-%{device}-pulseaudio-settings
 Requires: droid-config-%{device}-policy-settings
@@ -56,6 +55,7 @@ Requires: qtscenegraph-adaptation
 # For devices using droidmedia & gst-droid
 Requires: gstreamer1.0-droid
 Requires: gstreamer1.0-libav
+Requires: gmp-droid
 
 # This is needed for notification LEDs
 Requires: mce-plugin-libhybris

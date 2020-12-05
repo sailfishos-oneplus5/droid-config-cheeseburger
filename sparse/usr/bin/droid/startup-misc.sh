@@ -5,8 +5,13 @@
 [ -f /var/tmp/made-droid-links ] && exit 0
 
 # Determine username since SFOS 3.4.0
-user="nemo"
-[ -d /home/defaultuser ] && user="defaultuser"
+user=""
+while true; do
+	id nemo &> /dev/null && user="nemo"
+	id defaultuser &> /dev/null && user="defaultuser"
+	[ ! -z "$user" ] && break
+	sleep 2 # initial setup ongoing, wait a bit before trying again
+done
 
 # Required for gesture-daemon (https://git.io/JerMg) to work since SFOS 3.3
 gpasswd -a $user system

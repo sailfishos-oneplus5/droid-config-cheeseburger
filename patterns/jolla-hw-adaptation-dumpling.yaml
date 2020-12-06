@@ -1,18 +1,18 @@
-Description: Pattern with packages for cheeseburger HW Adaptation
-Name: jolla-hw-adaptation-cheeseburger
+Description: Pattern with packages for dumpling HW Adaptation
+Name: jolla-hw-adaptation-dumpling
 Requires:
-- droid-hal-cheeseburger
-- droid-hal-cheeseburger-detritus
-- droid-hal-cheeseburger-img-boot
-#- droid-hal-cheeseburger-img-recovery
-- droid-hal-cheeseburger-kernel-modules
-- droid-config-cheeseburger-sailfish
-- droid-config-cheeseburger-pulseaudio-settings
-- droid-config-cheeseburger-policy-settings
-- droid-config-cheeseburger-preinit-plugin
-- droid-config-cheeseburger-flashing
-- droid-config-cheeseburger-bluez5
-- droid-hal-version-cheeseburger
+- droid-hal-dumpling
+- droid-hal-dumpling-detritus
+- droid-hal-dumpling-img-boot
+#- droid-hal-dumpling-img-recovery
+- droid-hal-dumpling-kernel-modules
+- droid-config-dumpling-sailfish
+- droid-config-dumpling-pulseaudio-settings
+- droid-config-dumpling-policy-settings
+- droid-config-dumpling-preinit-plugin
+- droid-config-dumpling-flashing
+- droid-config-dumpling-bluez5
+- droid-hal-version-dumpling
 
 # Hybris packages
 - libhybris-libEGL
@@ -72,10 +72,10 @@ Requires:
 # For GPS
 - geoclue-provider-hybris
 
-# OnePlus 5 specific packages
+# OnePlus 5T specific packages
 - triambienced
 - onyx-triambience-settings-plugin
 - gestured
 - onyx-gesture-settings-plugin
 
-Summary: Jolla HW Adaptation cheeseburger
+Summary: Jolla HW Adaptation dumpling

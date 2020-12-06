@@ -69,7 +69,7 @@ Requires: rfkill
 # For GPS
 Requires: geoclue-provider-hybris
 
-# OnePlus 5 specific packages
+# OnePlus 5T specific packages
 Requires: triambienced
 Requires: onyx-triambience-settings-plugin
 Requires: gestured

@@ -13,9 +13,6 @@ while true; do
 	sleep 2 # initial setup ongoing, wait a bit before trying again
 done
 
-# Required for gesture-daemon (https://git.io/JerMg) to work since SFOS 3.3
-gpasswd -a $user system
-
 # Android Storage linking
 m_path="/data/android/media"
 [ -d "$m_path/0" ] && m_path+="/0"

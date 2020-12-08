@@ -1,0 +1,12 @@
+[Unit]
+Description=Droid bind-mounts for /system & /vendor
+After=system.mount vendor.mount
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/usr/bin/droid/droid-bind-mounts.sh
+
+[Install]
+WantedBy=local-fs.target

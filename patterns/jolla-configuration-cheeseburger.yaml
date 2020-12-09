@@ -9,14 +9,10 @@ Requires:
 - sailfish-content-graphics-z@ICON_RES@
 
 # Extended settings functionality
+- jolla-settings-system-nfc
 - jolla-settings-system-flashlight
 - jolla-settings-networking-multisim
 - jolla-settings-accounts-extensions-3rd-party-all
-
-# For devices which support NFC
-- jolla-settings-system-nfc
-- nfcd-dbuslog-plugin
-- nfcd-mce-plugin
 
 # Introduced starting Sailfish OS 2.1.1.26
 # Required for Jolla Store Access

@@ -1,0 +1,6 @@
+Description: Pattern with packages for dumpling configurations
+Name: jolla-configuration-dumpling
+Requires:
+- patterns-sailfish-device-configuration-dumpling
+
+Summary: Jolla Configuration dumpling

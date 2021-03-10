@@ -1,12 +1,12 @@
 # Reference: ../droid-configs-device/droid-configs.inc
 
-%include rpm/header-cheeseburger.inc
+%define vendor oneplus
+%define device cheeseburger
 
 %define vendor_pretty OnePlus
 %define device_pretty OnePlus 5 (A5000)
 
 %define community_adaptation 1
-%define use_meta_package 1
 %define pixel_ratio 1.75
 
 # Device-specific usb-moded configuration

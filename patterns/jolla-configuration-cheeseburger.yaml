@@ -1,56 +1,6 @@
 Description: Pattern with packages for cheeseburger configurations
 Name: jolla-configuration-cheeseburger
 Requires:
-- pattern:jolla-hw-adaptation-cheeseburger
-
-- patterns-sailfish-applications
-- patterns-sailfish-ui
-- patterns-sailfish-cellular-apps
-- sailfish-content-graphics-z@ICON_RES@
-
-# Extended settings functionality
-- jolla-settings-system-flashlight
-- jolla-settings-networking-multisim
-- jolla-settings-accounts-extensions-3rd-party-all
-
-# For devices which support NFC
-- jolla-settings-system-nfc
-- nfcd-dbuslog-plugin
-- nfcd-mce-plugin
-
-# Introduced starting Sailfish OS 2.1.1.26
-# Required for Jolla Store Access
-- patterns-sailfish-consumer-generic
-
-# For Mozilla location services (online)
-- geoclue-provider-mlsdb
-
-# Sailfish OS CSD tool for hardware testing
-# needs some configuration to get all features working
-- csd
-
-# Devices with 2G or more memory should also include this booster
-# to improve camera startup times and the like
-- mapplauncherd-booster-silica-qt5-media
-
-# Enable device lock and allow to select untrusted software
-#- jolla-devicelock-daemon-encsfa
-
-# Fingerprint unlocking daemon for community ports
-- sailfish-fpd-community
-- sailfish-devicelock-fpd
-- droid-biometry-fp
-
-# Enable /home encryption (LVM setup needed)
-#- sailfish-device-encryption
-
-# SELinux
-#- libselinux-utils
-#- libselinux-utils-extra
-#- setools
-#- policycoreutils
-
-# Early stages of porting benefit from these:
-#- pattern:sailfish-porter-tools
+- patterns-sailfish-device-configuration-cheeseburger
 
 Summary: Jolla Configuration cheeseburger

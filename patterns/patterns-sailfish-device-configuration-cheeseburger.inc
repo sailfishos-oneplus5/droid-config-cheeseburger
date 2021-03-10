@@ -48,7 +48,29 @@ Requires: droid-biometry-fp
 #Requires: policycoreutils
 
 # Early stages of porting benefit from these:
-#Requires: sailfish-porter-tools
+Recommends: patterns-sailfish-rnd
+# dev-tools pattern will be fixed in the next release
+# for now we'll use its 'exploded' version:
+#Recommends: patterns-sailfish-dev-tools
+Recommends: jolla-developer-mode
+Recommends: strace
+#Recommends: gdb
+#Recommends: gdb-gdbserver
+Recommends: vim-enhanced
+Recommends: less
+#Recommends: valgrind
+Recommends: lipstick-qt5-tools
+#Recommends: libhybris-tests
+Recommends: busybox-static
+Recommends: openssh-server
+Recommends: zypper
+
+# Extras
+Recommends: net-tools
+Recommends: openssh-clients
+Recommends: htop
+Recommends: nano
+Recommends: rsync
 
 %description -n patterns-sailfish-device-configuration-cheeseburger
 Pattern with packages for cheeseburger configurations

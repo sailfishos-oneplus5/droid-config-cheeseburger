@@ -1,1 +1,1 @@
-/lib/systemd/system/dummy_netd.service
+/usr/lib/systemd/system/dummy_netd.service

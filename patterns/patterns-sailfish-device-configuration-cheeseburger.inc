@@ -59,14 +59,14 @@ Recommends: strace
 Recommends: vim-enhanced
 Recommends: less
 #Recommends: valgrind
-Recommends: lipstick-qt5-tools
+#Recommends: lipstick-qt5-tools
 #Recommends: libhybris-tests
 Recommends: busybox-static
 Recommends: openssh-server
 Recommends: zypper
 
 # Extras
-Recommends: net-tools
+#Recommends: net-tools
 Recommends: openssh-clients
 Recommends: htop
 Recommends: nano

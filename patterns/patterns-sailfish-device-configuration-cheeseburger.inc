@@ -72,6 +72,10 @@ Recommends: htop
 Recommends: nano
 Recommends: rsync
 
+# I prefer proper bash thank you.
+Recommends: gnu-bash
+Obsoletes: busybox-symlinks-bash
+
 %description -n patterns-sailfish-device-configuration-cheeseburger
 Pattern with packages for cheeseburger configurations
 

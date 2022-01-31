@@ -1,6 +1,0 @@
-Description: Pattern with packages for cheeseburger configurations
-Name: jolla-configuration-cheeseburger
-Requires:
-- patterns-sailfish-device-configuration-cheeseburger
-
-Summary: Jolla Configuration cheeseburger
